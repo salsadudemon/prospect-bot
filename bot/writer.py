@@ -1,3 +1,4 @@
+import pandas as pd
 def print_summary(groups):
     print("Résumé des prospects")
     print("--------------------")
