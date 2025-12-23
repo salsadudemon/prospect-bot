@@ -21,6 +21,7 @@ def load_prospects(filepath: str) -> pd.DataFrame:
     # Normalize text fields
     for col in REQUIRED_COLUMNS:
         df[col] = df[col].astype(str).str.strip()
+        df["etat"] = df["etat"].fillna("A_CONTACTER")
 
     # Validate states
     invalid_states = set(df["etat"]) - VALID_STATES
