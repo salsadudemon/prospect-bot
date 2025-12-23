@@ -1,10 +1,11 @@
+import os
 from reader import load_prospects
 from logic import split_by_state
 from writer import print_summary, write_report
 
-import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FILEPATH = os.path.join(BASE_DIR, "data", "prospects.xlsx")
 
-FILEPATH = os.path.join("..", "data", "prospects.xlsx")
 
 def main():
     """
