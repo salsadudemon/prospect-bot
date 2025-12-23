@@ -9,7 +9,7 @@ def load_prospects(filepath: str) -> pd.DataFrame:
     Load and validate prospect data from an Excel file.
     """https://github.com/salsadudemon/prospect-bot/blob/main/bot/reader.py
     try:
-        df = pd.read_excel(filepath)
+        df = pd.read_excel(filepath, parse_dates=["date_dernier_contact"])
     except Exception as e:
         raise RuntimeError(f"Unable to read Excel file: {e}")
 
