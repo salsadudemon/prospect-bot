@@ -1,7 +1,7 @@
 import pandas as pd
 
 REQUIRED_COLUMNS = {"nom", "localisation", "contact", "etat"}
-VALID_STATES = {"A_CONTACTER", "RELANCE", "INACTIF"}
+VALID_STATES = {"A_CONTACTER", "ATTENTE_REPONSE", "RELANCE", "INACTIF"}
 
 
 def load_prospects(filepath: str) -> pd.DataFrame:
