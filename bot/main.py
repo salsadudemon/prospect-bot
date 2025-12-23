@@ -17,7 +17,10 @@ def main():
     - Generate a usable Excel report
     """
     df = load_prospects(FILEPATH)
+    from logic import apply_follow_up_rule, split_by_state
 
+    df = apply_follow_up_rule(df)
+    groups = split_by_state(df)
     # Business rule: prospects are handled differently depending on their status
     groups = split_by_state(df)
 
