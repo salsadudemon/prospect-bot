@@ -1,9 +1,5 @@
 # Prospect Automation Bot
 
-Local Python bot to organize prospect data stored in Excel files.
-
----
-
 ## Description
 This project is a small Python tool designed to help manage freelance or business prospecting.
 
@@ -12,15 +8,6 @@ It reads a simple Excel file containing prospects, applies basic business rules
 which prospects should be contacted, followed up, or considered inactive.
 
 The goal is to avoid forgetting follow-ups and to keep prospecting organized.
-
-
----
-
-## Features
-- Read and validate prospect data
-- Classify prospects by status
-- Display summary in terminal
-- Generate synthesis file
 
 ---
 
@@ -36,15 +23,92 @@ The goal is to avoid forgetting follow-ups and to keep prospecting organized.
 
 ## Expected Excel format
 
-The input file must be named:
+The input file must be named: prospects.xlsx
+
+
+and placed in the `data/` folder.
+
+### Required columns
+
+| Column name              | Description |
+|--------------------------|-------------|
+| nom                      | Company or prospect name |
+| localisation             | Location |
+| contact                  | Email or phone |
+| etat                     | Current status |
+| date_dernier_contact     | Date of last contact (YYYY-MM-DD) |
+
+### Allowed values for `etat`
+
+- `A_CONTACTER`
+- `ATTENTE_REPONSE`
+- `RELANCE`
+- `INACTIF`
 
 ---
 
-## Status
-Project in progress – learning purpose.
+## Business rule implemented
+
+If a prospect is in `ATTENTE_REPONSE` and has not responded after 10 days
+since the last contact, the status is automatically changed to `A_CONTACTER`.
+
+This allows systematic follow-up without manual tracking.
 
 ---
 
-## Requirements
-- Python 3.10+
+## How to run the project
+
+### Requirements
+- Python 3
+- pandas
+- openpyxl
+
+### Run
+Open `bot/main.py` with IDLE or your Python editor and run the script.
+
+The program will:
+- display a summary in the console
+- generate an Excel report named: rapport_prospection.xlsx
+
+
+---
+
+## Output
+The generated report contains:
+- a `Résumé` sheet with the current date and number of prospects per status
+- one sheet per status (`A_CONTACTER`, `ATTENTE_REPONSE`, etc.)
+
+---
+
+## Project structure
+prospect-bot/
+├─ bot/
+│ ├─ main.py
+│ ├─ reader.py
+│ ├─ logic.py
+│ └─ writer.py
+├─ data/
+│ └─ prospects.xlsx
+└─ README.md
+
+
+---
+
+## Limitations
+- No graphical interface
+- No automatic web data collection
+- Designed as a local tool for personal or small-scale use
+
+---
+
+## Possible improvements
+- Additional follow-up rules
+- Priority scoring
+- Executable version
+- GUI or web interface
+
+---
+
+## Author
+Personal learning project Tototuto– Python & automation.
 
