@@ -2,12 +2,6 @@
 
 Local Python bot to organize prospect data stored in Excel files.
 
-## Features
-- Read and validate prospect data
-- Classify prospects by status
-- Display summary in terminal
-- Generate synthesis file
-
 ---
 
 ## Description
@@ -18,6 +12,15 @@ It reads a simple Excel file containing prospects, applies basic business rules
 which prospects should be contacted, followed up, or considered inactive.
 
 The goal is to avoid forgetting follow-ups and to keep prospecting organized.
+
+
+---
+
+## Features
+- Read and validate prospect data
+- Classify prospects by status
+- Display summary in terminal
+- Generate synthesis file
 
 ---
 
